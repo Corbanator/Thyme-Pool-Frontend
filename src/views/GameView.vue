@@ -197,14 +197,14 @@ export default{
             },
             execute(){
                 if(this.selected >=0 
-                //&& this.turn == true
+                && this.turn == true
                 ){
                     switch (this.action) {
                         case "shove":
                                 let toSend = {};
                                 toSend.magnitude = this.currentPower;
                                 toSend.target = this.selected;
-                                toSend.direction = Math.atan((this.mouseY-this.sim[this.frameNum].pos[this.selected].y)/(this.mouseX-this.sim[this.frameNum].pos[this.selected].y)) + Math.PI;
+                                toSend.direction = Math.atan2((this.mouseY-this.sim[this.frameNum].pos[this.selected].y),(this.mouseX-this.sim[this.frameNum].pos[this.selected].x)) + Math.PI;
                                 toSend.type = "action";
                                 toSend.actionType= this.action;
                                 toSend.frame = parseInt(this.frameNum);
